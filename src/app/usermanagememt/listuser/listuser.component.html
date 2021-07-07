@@ -1,0 +1,55 @@
+<div class="main_div">
+    <h2>Users List</h2>
+    <button mat-raised-button (click)="download()" color="primary">Download CSV</button>
+    <label>Search: </label> <input type="search" name="filesearch" (input)="onSearchChange($event.target.value)" placeholder="search">
+    <label> Sort By Order Date: </label>
+    <select class='select-option' #mySelect (change)='onOptionsSelected(mySelect.value)'>
+        <option [value]="1">ASC</option>
+        <option [value]="-1">DESC</option>
+    </select>
+    <mat-card>
+        <table class="table">
+            <thead class="backcolor textcolor">
+                <tr>
+                    <th scope="col" style="width: 5%">S.No.</th>
+                    <th scope="col" style="width: 15%">Name</th>
+                    <th scope="col" style="width: 15%">Email</th>
+                    <th scope="col" style="width: 15%">Phone</th>
+                    <th scope="col" style="width: 10%">UserType</th>
+                    <th scope="col" style="width: 10%">Joined Since</th>
+
+                    <!-- <th scope="col" style="width: 5%">Action</th> -->
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of listuser let i=index">
+                    <td>{{ i+1 }}</td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.phone}}</td>
+                    <td>{{user.utype}}</td>
+                    <td>{{user.created_at | date: 'd/M/yy'}}</td>
+
+
+                    <!-- <td (click)="edit(user)">
+                        <mat-icon color="primary">edit</mat-icon>
+                    </td> -->
+
+                </tr>
+                <tr *ngIf="!listuser.length">
+                    <p>No data found</p>
+                </tr>
+            </tbody>
+        </table>
+    </mat-card>
+    <nav aria-label="page navigation example">
+        <ul class="pagination">
+            <li class="page-item" (click)="onClickPage(activePage - 1)"><a class="page-link" href="javascript:void(0);">«  
+              Previous</a></li>
+            <li class="page-item" [ngClass]="{'active': activePage === item}" *ngFor="let item of pages" (click)="onClickPage(item)"><a class="page-link" href="javascript:void(0);">{{item}}</a></li>
+            <li class="page-item" (click)="onClickPage(activePage + 1)"><a class="page-link" href="javascript:void(0);">Next  
+              »</a></li>
+        </ul>
+    </nav>
+</div>

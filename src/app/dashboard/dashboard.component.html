@@ -1,0 +1,31 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+    <mat-toolbar color="primary" class="example-toolbar">
+        <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+        <h1 class="example-app-name">Seats App</h1>
+        <span class="spacer"></span>
+        <button mat-button [matMenuTriggerFor]="menu" fxShow.lt-md="false" fxShow.gt-sm="true">
+            <mat-icon>account_circle</mat-icon>
+            <span class="ml-2">Account</span>
+        </button>
+        <button mat-icon-button [matMenuTriggerFor]="menu" fxShow.lt-md="true" fxShow.gt-sm="false">
+            <mat-icon>account_circle</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" overlapTrigger="false">
+            <button mat-menu-item (click)="logout()">
+                <mat-icon>logout</mat-icon>
+                <span>Logout</span>
+            </button>
+        </mat-menu>
+    </mat-toolbar>
+
+    <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+        <mat-sidenav #snav opened="true" [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+            <ng-material-multilevel-menu [configuration]='config' [items]='appitems' (selectedItem)="selectedItem($event)">
+            </ng-material-multilevel-menu>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

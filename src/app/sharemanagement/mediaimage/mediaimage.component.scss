@@ -1,0 +1,16 @@
+.imagesize {
+    width: unset;
+    height: 100px;
+}
+
+mat-grid-tile {
+    background: lightblue;
+}
+
+.mat-grid-tile .mat-grid-tile-footer {
+    height: 30px !important;
+}
+
+.mat-grid-tile .mat-grid-tile-footer>* {
+    padding-top: 5px !important;
+}

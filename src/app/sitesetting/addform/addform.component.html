@@ -1,0 +1,85 @@
+<div class="main_div">
+    <form [formGroup]="addform">
+        <div class="row">
+            <div class="col-md-6 example-container">
+
+                <mat-form-field>
+                    <input matInput placeholder="Contact Us Title" formControlName="contact_us_title" required>
+                    <mat-error *ngIf="!addform.controls['contact_us_title'].valid && addform.controls['contact_us_title'].touched">Enter Contact Us Title</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput placeholder="Contact Us Phone No" formControlName="contact_us_phone_no" required>
+                    <mat-error *ngIf="!addform.controls['contact_us_phone_no'].valid && addform.controls['contact_us_phone_no'].touched">Enter Contact Us Phone No</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput placeholder="Contact Us Email" formControlName="contact_us_email" required>
+                    <mat-error *ngIf="!addform.controls['contact_us_email'].valid && addform.controls['contact_us_email'].touched">Enter Contact Us Email</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput placeholder="Contact Us Mobile" formControlName="contact_us_mobile" required>
+                    <mat-error *ngIf="!addform.controls['contact_us_mobile'].valid && addform.controls['contact_us_mobile'].touched">Enter Contact Us Mobile</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <textarea rows=4 matInput placeholder="Contact Us Address" formControlName="contact_us_address" required></textarea>
+                    <mat-error *ngIf="!addform.controls['contact_us_address'].valid && addform.controls['contact_us_address'].touched">Enter Contact Us Address</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <textarea rows=4 matInput placeholder="Raj Yoga Title" formControlName="raj_yoga_title" required></textarea>
+                    <mat-error *ngIf="!addform.controls['raj_yoga_title'].valid && addform.controls['raj_yoga_title'].touched">Enter Raj Yoga Title</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Raj Yoga Phone No" formControlName="raj_yoga_phone_no" required>
+                    <mat-error *ngIf="!addform.controls['raj_yoga_phone_no'].valid && addform.controls['raj_yoga_phone_no'].touched">Enter Raj Yoga Phone No</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Raj Yoga Address" formControlName="raj_yoga_address" required>
+                    <mat-error *ngIf="!addform.controls['raj_yoga_address'].valid && addform.controls['raj_yoga_address'].touched">Enter Raj Yoga Address</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Facebook URL" formControlName="facebook_url" required>
+                    <mat-error *ngIf="!addform.controls['facebook_url'].valid && addform.controls['facebook_url'].touched">Enter Facebook Url</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Twitter URL" formControlName="twitter_url" required>
+                    <mat-error *ngIf="!addform.controls['twitter_url'].valid && addform.controls['twitter_url'].touched">Enter Twitter Url</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="LinkedIn URL" formControlName="linkedin_url" required>
+                    <mat-error *ngIf="!addform.controls['linkedin_url'].valid && addform.controls['linkedin_url'].touched">Enter LinkedIn Url</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Instagram URL" formControlName="instagram_url" required>
+                    <mat-error *ngIf="!addform.controls['raj_yoga_address'].valid && addform.controls['raj_yoga_address'].touched">Enter Raj Yoga Address</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="How to reach Title" formControlName="about_title" required>
+                    <mat-error *ngIf="!addform.controls['about_title'].valid && addform.controls['about_title'].touched">Enter How to reach Title</mat-error>
+                </mat-form-field>
+
+            </div>
+            <div class="col-md-6 example-container">
+                <label>How to Reach Iframe</label>
+                <ckeditor matInput formControlName="how_to_reach" [config]="ckeConfig"></ckeditor>
+                <mat-error *ngIf="!addform.controls['how_to_reach'].valid && addform.controls['how_to_reach'].touched">Enter How to Reach</mat-error>
+                <label>Footer Menu HTML</label>
+                <ckeditor matInput aria-placeholder="dsds" formControlName="footer_menu" [config]="ckeConfig"></ckeditor>
+                <mat-error *ngIf="!addform.controls['footer_menu'].valid && addform.controls['footer_menu'].touched">Enter Footer Menu</mat-error>
+                <label>Footer Menu Bar HTML</label>
+                <ckeditor matInput formControlName="footer_menu_bar" [config]="ckeConfig"></ckeditor>
+                <mat-error *ngIf="!addform.controls['footer_menu_bar'].valid && addform.controls['footer_menu_bar'].touched">Enter Footer Menu Bar</mat-error>
+            </div>
+
+
+            <div class="col-md-6 example-container">
+                <mat-form-field>
+                    <input matInput placeholder="Flat Rate" formControlName="flat_rate" required>
+                    <mat-error *ngIf="!addform.controls['flat_rate'].valid && addform.controls['flat_rate'].touched">Enter Flat Rate Shipping</mat-error>
+                </mat-form-field>
+                <button mat-raised-button (click)="save()" [disabled]="!addform.valid" color="primary">Save</button>
+            </div>
+        </div>
+    </form>
+</div>

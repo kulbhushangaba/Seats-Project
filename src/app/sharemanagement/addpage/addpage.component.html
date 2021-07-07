@@ -1,0 +1,28 @@
+<div class="main_div">
+    <mat-card>
+        <table class="table">
+            <thead class="backcolor textcolor">
+                <tr>
+                    <th scope="col" style="width: 50%">Page Name</th>
+                    <th scope="col" style="width: 5%">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let page of pagelist">
+                    <td>{{page.page_name}}</td>
+                    <td (click)="edit(page)">
+                        <mat-icon color="primary">edit</mat-icon>
+                    </td>
+                </tr>
+                <tr *ngIf="!pagelist.length">
+                    <p>No data found</p>
+                </tr>
+            </tbody>
+        </table>
+    </mat-card>
+    <div class="fabdiv" (click)="add()">
+        <button mat-fab color="primary">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+</div>

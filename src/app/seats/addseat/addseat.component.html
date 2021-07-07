@@ -1,0 +1,33 @@
+<div class="main_div">
+  <h2>Add Seats</h2>
+  <form [formGroup]="addseats">
+      <div class="row">
+          <div class="col-md-6 example-container">
+              <mat-form-field>
+                  <input matInput placeholder="Id" formControlName="id" required>
+                  <mat-error *ngIf="!addseats.controls['id'].valid && addseats.controls['id'].touched">Enter Id</mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="Left" formControlName="left" required>
+                <mat-error *ngIf="!addseats.controls['left'].valid && addseats.controls['left'].touched">Enter Value</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Right" formControlName="right" required>
+              <mat-error *ngIf="!addseats.controls['right'].valid && addseats.controls['right'].touched">Enter Value</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+          <mat-select placeholder="Select Status" formControlName="status" required>
+            <mat-option *ngFor="let statuss of statuses" [value]="statuss">
+                {{statuss}} 
+            </mat-option>
+        </mat-select>
+      </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Rank" formControlName="rank" required>
+            <mat-error *ngIf="!addseats.controls['rank'].valid && addseats.controls['rank'].touched">Enter Value</mat-error>
+        </mat-form-field>
+              <button mat-raised-button (click)="savewithImageUrl()" [disabled]="!addseats.valid" color="primary">Save</button>        
+            </div>
+      </div> 
+  </form>
+</div>

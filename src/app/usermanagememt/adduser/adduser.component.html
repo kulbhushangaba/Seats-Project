@@ -1,0 +1,82 @@
+<div class="main_div">
+    <form [formGroup]="adduser">
+        <div class="row">
+            <div class="col-md-6 example-container">
+                <mat-form-field>
+                    <input matInput placeholder="user Name" formControlName="name" required>
+                    <mat-error *ngIf="!adduser.controls['name'].valid && adduser.controls['name'].touched">Enter user Name</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="email" placeholder="Email" formControlName="email" required>
+                    <mat-error *ngIf="!adduser.controls['email'].valid && adduser.controls['email'].touched">Enter Email</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="number" placeholder="phone" formControlName="phone" required>
+                    <mat-error *ngIf="!adduser.controls['phone'].valid && adduser.controls['phone'].touched">Enter phone</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Password" formControlName="password" type="password" required>
+                    <mat-error *ngIf="!adduser.controls['password'].valid && adduser.controls['password'].touched">Enter password</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Confirm Password" formControlName="repeatPassword" type="password" required>
+                    <mat-error *ngIf="!adduser.controls['repeatPassword'].valid && adduser.controls['repeatPassword'].touched">Enter Confirm password</mat-error>
+                </mat-form-field>
+                <div class="row">
+                    <div class="col-6">
+                        <h6>Address:</h6>
+                    </div>
+                    <div class="col-6">
+                        <mat-icon *ngIf="!address" style="float: right;" (click)="addaddress('address')" color="primary">add</mat-icon>
+                        <mat-icon *ngIf="address" style="float: right;" (click)="editaddress('address')" color="primary">edit</mat-icon>
+                    </div>
+                    <div class="col-12">
+                        <div *ngIf="address">
+                            <p>Address: {{address.address}}</p>
+                            <p>Landmark: {{address.landmark}}</p>
+                            <p>Phone: {{address.phone}}</p>
+                            <p>City: {{address.city.name}} State: {{address.state.name}} Country: {{address.country.name}} - {{address.pin_code}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 example-container">
+                <div class="row">
+                    <div class="col-6">
+                        <h6>Billing Address:</h6>
+                    </div>
+                    <div class="col-6">
+                        <mat-icon *ngIf="!billingAddress" style="float: right;" (click)="addaddress('billingaddress')" color="primary">add</mat-icon>
+                        <mat-icon *ngIf="billingAddress" style="float: right;" (click)="editaddress('billingaddress')" color="primary">edit</mat-icon>
+                    </div>
+                    <div class="col-12">
+                        <div *ngIf="billingAddress">
+                            <p>Address: {{billingAddress.address}}</p>
+                            <p>Landmark: {{billingAddress.landmark}}</p>
+                            <p>Phone: {{billingAddress.phone}}</p>
+                            <p>City: {{billingAddress.city.name}} State: {{billingAddress.state.name}} Country: {{billingAddress.country.name}} - {{billingAddress.pin_code}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <h6>Shipping Address:</h6>
+                    </div>
+                    <div class="col-6">
+                        <mat-icon *ngIf="!shippingAddress" style="float: right;" (click)="addaddress('shippingaddress')" color="primary">add</mat-icon>
+                        <mat-icon *ngIf="shippingAddress" style="float: right;" (click)="editaddress('shippingaddress')" color="primary">edit</mat-icon>
+                    </div>
+                    <div class="col-12">
+                        <div *ngIf="shippingAddress">
+                            <p>Address: {{shippingAddress.address}}</p>
+                            <p>Landmark: {{shippingAddress.landmark}}</p>
+                            <p>Phone: {{shippingAddress.phone}}</p>
+                            <p>City: {{shippingAddress.city.name}} State: {{shippingAddress.state.name}} Country: {{shippingAddress.country.name}} - {{shippingAddress.pin_code}}</p>
+                        </div>
+                    </div>
+                </div>
+                <button mat-raised-button (click)="savewithimageurl()" [disabled]="!adduser.valid" color="primary">Save</button>
+            </div>
+        </div>
+    </form>
+</div>

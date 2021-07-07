@@ -1,0 +1,25 @@
+<mat-toolbar color="primary" class="header-box-shadow fixedtoolbar">
+    Seats App
+    <a mat-flat-button href="/auth/login">Login</a>
+    <a mat-flat-button href="/auth/register">Register</a>
+</mat-toolbar>
+
+<mat-card class="example-card">
+    <mat-card-content>
+        <h6>Login </h6>
+        <form class="example-form">
+            <div class="example-container">
+                <div style="text-align: center;">
+                    <img src="../../../assets/logo4.png" height="70px" width="50px"/>
+                </div>
+                <mat-form-field>
+                    <input matInput placeholder="Email" [(ngModel)]="email" name="email" required>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required>
+                </mat-form-field>
+                <button mat-raised-button (click)="login()" color="primary">Login</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,72 @@
+<mat-sidenav-container class="container">
+    <mat-sidenav #sidenav [(mode)]="over" style="background-color: #3A3A5A;" [(opened)]="opened" class="bottom-to-top">
+        <div class="mt-2 py-3 text-white sidemenuheader" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="7px">
+            <div>
+                <a>
+                    <span class="lead">Seat App</span>
+                </a>
+            </div>
+        </div>
+        <div class="mt-3">
+            <mat-nav-list>
+                <mat-list-item>
+                    <a href="#">Homepage</a>
+                </mat-list-item>
+                <mat-accordion multi="true" [displayMode]="displayMode">
+                    <mat-expansion-panel class="no-shadow">
+                        <mat-expansion-panel-header fxLayout="row" [expandedHeight]="expandHeight" [collapsedHeight]="collapseHeight">
+                            <mat-panel-title>
+                                Buy Airtime
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <mat-nav-list class="ml-0" dense>
+                            <mat-list-item>
+                                <a href="#">AirtelTigo Airtime</a>
+                            </mat-list-item>
+                        </mat-nav-list>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel class="no-shadow my-0">
+                        <mat-expansion-panel-header fxLayout="row" [expandedHeight]="expandHeight" [collapsedHeight]="collapseHeight">
+                            <mat-panel-title>
+                                Buy Airtime
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <mat-nav-list class="ml-0" dense>
+                            <mat-list-item>
+                                <a href="#">AirtelTigo Airtime</a>
+                            </mat-list-item>
+                        </mat-nav-list>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </mat-nav-list>
+        </div>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <mat-toolbar color="primary" class="header-box-shadow">
+            <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+            <span class="spacer"></span>
+            <button mat-button [matMenuTriggerFor]="menu" fxShow.lt-md="false" fxShow.gt-sm="true">
+        <mat-icon>account_circle</mat-icon>
+        <span class="ml-2">Account</span>
+      </button>
+            <button mat-icon-button [matMenuTriggerFor]="menu" fxShow.lt-md="true" fxShow.gt-sm="false">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+            <mat-menu #menu="matMenu" overlapTrigger="false">
+                <button mat-menu-item>
+          <mat-icon>account_circle</mat-icon>
+          <span>My Account</span>
+        </button>
+                <button mat-menu-item>
+          <mat-icon>settings</mat-icon>
+          <span>Settings</span>
+        </button>
+            </mat-menu>
+            <mat-icon class="ml-3" title="Logout" [routerLink]="['/auth/login']">exit_to_app</mat-icon>
+        </mat-toolbar>
+    </mat-sidenav-content>
+    <router-outlet></router-outlet>
+</mat-sidenav-container>

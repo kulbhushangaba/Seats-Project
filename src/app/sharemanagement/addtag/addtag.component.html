@@ -1,0 +1,28 @@
+<div class="main_div">
+    <mat-card>
+        <table class="table">
+            <thead class="backcolor textcolor">
+                <tr>
+                    <th scope="col" style="width: 50%">Tag Name</th>
+                    <th scope="col" style="width: 5%">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let tag of taglist">
+                    <td>{{tag.tag_name}}</td>
+                    <td (click)="edit(tag)">
+                        <mat-icon color="primary">edit</mat-icon>
+                    </td>
+                </tr>
+                <tr *ngIf="!taglist.length">
+                    <p>No data found</p>
+                </tr>
+            </tbody>
+        </table>
+    </mat-card>
+    <div class="fabdiv" (click)="add()">
+        <button mat-fab color="primary">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+</div>

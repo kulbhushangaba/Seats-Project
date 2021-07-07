@@ -1,0 +1,81 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import '~angular-tree-component/dist/angular-tree-component.css';
+@import '~@angular/material/theming';
+@import '~dragula/dist/dragula.css';
+@import "~bootstrap/dist/css/bootstrap.css";
+@import '~bootstrap/scss/bootstrap-reboot';
+@import '~bootstrap/scss/bootstrap-grid';
+@import "styles-variables";
+$custom-typography: mat-typography-config( $font-family: 'Exo');
+@include mat-core($custom-typography);
+body {
+    background-color: #f4f3f3;
+    margin: 0;
+    app-root * {
+        font-family: 'Exo', sans-serif;
+    }
+}
+
+.main_div {
+    margin: 20px;
+}
+
+.backcolor {
+    background-color: #3f51b5;
+}
+
+.textcolor {
+    color: white;
+}
+
+.example-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.example-container>* {
+    width: 100%;
+}
+
+.padding {
+    margin: 15px 0px 15px 0px !important;
+}
+
+.banner_dimention {
+    height: 120px;
+    width: 300px;
+}
+
+.imagesize {
+    width: inherit;
+    height: 250px;
+}
+
+.removeimage {
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.mat-card {
+    overflow: auto !important;
+    padding: 0px !important;
+}
+
+.table td {
+    padding: 0.5rem !important;
+    font-size: 0.9rem;
+}
+
+.table th {
+    padding: 0.5rem !important;
+    font-size: 0.9rem;
+}
+
+button:focus {
+    outline: none !important;
+}

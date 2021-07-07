@@ -1,0 +1,57 @@
+<div class="row">
+    <div class="col-sm-4">
+        <mat-icon color="primary" (click)="close()">close</mat-icon>
+    </div>
+    <div class="col-sm-4">
+        <h5>Address</h5>
+    </div>
+    <div class="col-sm-4">
+    </div>
+</div>
+<hr>
+<mat-dialog-content class="mat-typography">
+    <div class="main_div">
+        <form [formGroup]="adduser">
+            <div class="example-container">
+                <mat-form-field>
+                    <textarea rows=4 matInput placeholder="Address" formControlName="address" required></textarea>
+                    <mat-error *ngIf="!adduser.controls['address'].valid && adduser.controls['address'].touched">Enter Address</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="text" placeholder="Landmark" formControlName="landmark" required>
+                    <mat-error *ngIf="!adduser.controls['landmark'].valid && adduser.controls['landmark'].touched">Enter landmark</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="number" placeholder="Phone" formControlName="phone" required>
+                    <mat-error *ngIf="!adduser.controls['phone'].valid && adduser.controls['phone'].touched">Enter phone</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-select placeholder="Select Country" [compareWith]="compareCountry" [(ngModel)]="selectedcountry" [ngModelOptions]="{standalone: true}">
+                        <mat-option *ngFor="let country of countrylist" [value]="country">
+                            {{country.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-select placeholder="Select State" (selectionChange)="changeState($event)" [compareWith]="compareState" [(ngModel)]="selectedstate" [ngModelOptions]="{standalone: true}">
+                        <mat-option *ngFor="let state of statelist" [value]="state">
+                            {{state.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-select placeholder="Select City" [compareWith]="compareCity" [(ngModel)]="selectedcity" [ngModelOptions]="{standalone: true}">
+                        <mat-option *ngFor="let city of citylist" [value]="city">
+                            {{city.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="number" placeholder="Pin code" formControlName="pin_code" required>
+                    <mat-error *ngIf="!adduser.controls['pin_code'].valid && adduser.controls['pin_code'].touched">Enter pin code</mat-error>
+                </mat-form-field>
+                <button mat-raised-button (click)="savewithimageurl()" [disabled]="!adduser.valid" color="primary">Save</button>
+            </div>
+        </form>
+    </div>
+</mat-dialog-content>
